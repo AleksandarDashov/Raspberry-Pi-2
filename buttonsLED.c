@@ -7,8 +7,10 @@
  *   When a button is pressed the corresponding LED lights.
  *   Push all 3 buttons to terminate the program.
  *
- *   Here is the wiring for this program
+ *   Here is the wiring for this program:
  *   https://www.dropbox.com/s/sdpwc0ewuob7og6/buttonsLED.jpg?dl=0
+ *   
+ *   I used 220Ω (ohms) resistors for the LEDs and 10 000Ω resistors for the buttons.
  */
  
  
