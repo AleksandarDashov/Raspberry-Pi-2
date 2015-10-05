@@ -6,6 +6,9 @@
  *   There are 3 LEDs red, green adn yellow, there are 3 buttons also, one for every LED.
  *   When a button is pressed the corresponding LED lights.
  *   Push all 3 buttons to terminate the program.
+ *
+ *   Here is the wiring for this program
+ *   https://www.dropbox.com/s/sdpwc0ewuob7og6/buttonsLED.jpg?dl=0
  */
  
  
