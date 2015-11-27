@@ -3,7 +3,7 @@
  
 /*
  *   Simple program for blinking LEDs with buttons.
- *   There are 3 LEDs red, green adn yellow, there are 3 buttons also, one for every LED.
+ *   There are 3 LEDs red, green and yellow, there are 3 buttons also, one for every LED.
  *   When a button is pressed the corresponding LED lights.
  *   Push all 3 buttons to terminate the program.
  *
