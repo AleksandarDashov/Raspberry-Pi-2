@@ -10,18 +10,16 @@
 #include <unistd.h>
 
 #define BCM2708_BASE (0x3F000000)
-#define GPIO_BASE (BCM2708_BASE + 0x200000)
+#define GPIO_BASE (BCM2708_BASE + 0x200000) //0x3F200000
 #define BLOCK_SIZE (4096)
 #define MAXTIMINGS 85
 
 struct bcm2835_peripheral
 {
-    int mem_fd;
-    void *map;
+    int mem_fd;// "/dev/mem"s file descriptor
+    void *map; //pointer to mapped area
     volatile unsigned int *addr;//address of mapped area
 };
-struct bcm2835_peripheral gpio;
-
 /*
  *Mapping memory areas with mmap function will provide our program a direct access to device memory
  *Parameters: structrure for the addresses of the specified mapped memory areas
@@ -34,7 +32,10 @@ int map_peripheral(struct bcm2835_peripheral *p)
     {
         printf("Failed to open /dem/mem, did you sudo?\n");
         return -1;
-    }
+    } 
+    /*Creates a new mapping in the virtual address space of the calling process
+     *Returns a pointer to the mapped area
+     */
     p->map = mmap(NULL,BLOCK_SIZE,PROT_READ|PROT_WRITE,MAP_SHARED,p->mem_fd, GPIO_BASE);
 
     if(p->map == MAP_FAILED)
@@ -53,7 +54,7 @@ void unmap_peripheral(struct bcm2835_peripheral *p)
     close(p->mem_fd);
 }
 
-
+struct bcm2835_peripheral gpio;
 //setting the pin as input
 void input_GPIO(int gpio_numb)
 {
