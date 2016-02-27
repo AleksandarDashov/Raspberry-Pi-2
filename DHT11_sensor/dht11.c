@@ -58,6 +58,7 @@ struct bcm2835_peripheral gpio;
 //setting the pin as input
 void input_GPIO(int gpio_numb)
 {
+	// int register_index = gpio_numb/10;
     *(gpio.addr + ((gpio_numb)/10)) &= ~(7<<(((gpio_numb)%10)*3));
 }
 //setting the pin as output
